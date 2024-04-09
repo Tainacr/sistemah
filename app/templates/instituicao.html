@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Instituição</title>
     <!-- Incluindo Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -22,22 +22,19 @@
                     <a class="nav-link text-dark" href="/pessoas/">Pessoas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/ocupacao/">Ocupacao</a>
+                    <a class="nav-link text-dark" href="/ocupacao/">Ocupação</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/cidade/">Cidades</a>
+                    <a class="nav-link text-dark" href="/instituicao/">Instituição</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/instituicao/">Instituição de Ensino</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/area/">Áreas de Saber</a>
+                    <a class="nav-link text-dark" href="/area/">Áreas do Saber</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="/cursos/">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/periodo/">Períodos de Cursos</a>
+                    <a class="nav-link text-dark" href="/periodo/">Período</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="/disciplinas/">Disciplinas</a>
@@ -55,24 +52,49 @@
                     <a class="nav-link text-dark" href="/turmas/">Turmas</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-dark" href="/cidade/">Cidade</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-dark" href="/ocorrencias/">Ocorrências</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="/disciplinasporcursos/">Disciplinas por Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/tipodeavaliacao/">Tipo de Avaliações</TItle></a>
+                    <a class="nav-link text-dark" href="/tipodeavaliacao/">Tipos de Avaliação</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/admin/">Administração</a>
                 </li>
             </ul>
         </div>
     </nav>
+
     <div class="container mt-5">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Olá, é bom te ver por aqui</h1>
-            <p class="lead">Esta é a página inicial do Sistema Acadêmico</p>
-            <p class="lead">Seja Bem Vindo(A)</p>
-        </div>
+        <h2 class="mb-4">Tabela de Instituições</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Site</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Cidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instituicao in instituicao %}
+                <tr>
+                    <td>{{ instituicao.nome }}</td>
+                    <td>{{ instituicao.site }}</td>
+                    <td>{{ instituicao.telefone }}</td>
+                    <td>{{ instituicao.cidade }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+
     <!-- Incluindo jQuery e Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

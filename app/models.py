@@ -81,7 +81,7 @@ class Cursos(models.Model):
 
 
 class Periodo(models.Model):
-    periodo = models.IntegerField(verbose_name="Período do curso")
+    periodo = models.CharField(verbose_name="Período do curso")
     
     def __str__(self):
         return self.periodo
@@ -147,7 +147,7 @@ class Frequencia(models.Model):
 
 class Turmas(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da turma")
-    periodo = models.CharField(max_length=100, verbose_name="Período da turma")
+    periodoturma = models.CharField(max_length=100, verbose_name="Período da turma")
 
     def __str__(self):
         return self.nome
@@ -175,15 +175,15 @@ class Ocorrencias(models.Model):
 class DisciplinasporCursos(models.Model):
    
     curso = models.ForeignKey(Cursos, on_delete=models.CASCADE, verbose_name="Curso")
-    disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE, verbose_name="Disciplina")
+    disciplinasporcursos = models.CharField(max_length=100, verbose_name="Disciplina por Curso")
     periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE, verbose_name="Período")
     carga_horaria = models.CharField(max_length=100, verbose_name="Carga Horária")
     def __str__(self):
-        return self.carga_horaria
+        return self.disciplinasporcursos
     
     class Meta:
-        verbose_name = "Carga Horária"
-        verbose_name_plural = "Cargas Horárias"
+        verbose_name = "Disciplina por curso"
+        verbose_name_plural = "Disciplinas por curso"
 
 
 class TipodeAvaliacao(models.Model):
